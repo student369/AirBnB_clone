@@ -1,9 +1,10 @@
 # AirBnB_clone
 This project is the firt part of the Airbnb clone project for Holberton School.
 
-# How to use
-## Interactive mode
+# How to use?
+
 ```
+## Interactive mode
 ./console.py
 Documented commands (type help <topic>):
 ========================================
@@ -16,11 +17,14 @@ EOF  help  quit
 ## Non interactive mode
  echo "help" | ./console.py
 (hbnb)
+```
+# Examples
 
+```
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
+(hbnb)
 $
 $ cat test_help
 help
