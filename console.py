@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""HBNB Console"""
+"""HBNB Console for AirBnB clone"""
 
 import cmd
 
