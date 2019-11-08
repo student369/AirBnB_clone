@@ -37,4 +37,17 @@ class BaseModel(object):
 
     def to_dict(self):
         """Returns a dictionary representation of this object"""
-        return (self.__dict__)
+        dicver = dict()
+        dicver.__setitem__("my_number", self.my_number)
+        dicver.__setitem__("my_name", self.name)
+        dicver.__setitem__("__class__", self.__class__.__name__)
+        dicver.__setitem__(
+            "updated_at",
+            self.updated_at.isoformat(' ')
+        )
+        dicver.__setitem__("id", self.id)
+        dicver.__setitem__(
+            "created_at",
+            self.created_at.isoformat(' ')
+        )
+        return (dicver)
