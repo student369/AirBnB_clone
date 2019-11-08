@@ -3,8 +3,8 @@ This project is the firt part of the Airbnb clone project for Holberton School.
 
 # How to use
 ## Interactive mode
-./console.py
 ```
+./console.py
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
