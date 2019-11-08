@@ -17,10 +17,6 @@ EOF  help  quit
 ## Non interactive mode
  echo "help" | ./console.py
 (hbnb)
-```
-# Examples
-
-```
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
