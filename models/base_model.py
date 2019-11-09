@@ -5,8 +5,9 @@
 This module contains the BaseModel class
 
 """
-import datetime
+import datetime as d
 import uuid
+import models.engine.file_storage as FileStorage
 
 
 class BaseModel(object):
@@ -14,11 +15,27 @@ class BaseModel(object):
 
     A simple empty BaseModel class
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Returns a BaseModel object"""
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.today()
-        self.updated_at = datetime.datetime.today()
+        self.storage = FileStorage()
+        self.storage.reload()
+        if kwargs is not None and len(kwargs) > 0:
+            for i, arg in kwargs.items():
+                if i == "__class__":
+                    arg = self.__class__
+                if i == "created_at":
+                    arg = d.datetime.strptime(
+                        arg, "%Y-%m-%d %H:%M:%S.%f"
+                    )
+                if i == "updated_at":
+                    arg = d.datetime.strptime(
+                        arg, "%Y-%m-%d %H:%M:%S.%f"
+                    )
+                setattr(self, i, arg)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = d.datetime.now()
+            self.updated_at = d.datetime.now()
 
     def __str__(self):
         """Oberwrite the __str__ magic method"""
@@ -33,7 +50,8 @@ class BaseModel(object):
 
     def save(self):
         """Method to updates the instance"""
-        self.updated_at = datetime.datetime.today()
+        import models.engine.file_storage as storage
+        self.updated_at = d.datetime.now()
 
     def to_dict(self):
         """Returns a dictionary representation of this object"""
