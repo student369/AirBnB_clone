@@ -2,6 +2,7 @@
 
 """HBNB Console for AirBnB clone"""
 
+
 import cmd
 
 class HBNBCommand(cmd.Cmd):
