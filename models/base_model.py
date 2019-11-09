@@ -7,6 +7,7 @@ This module contains the BaseModel class
 """
 import datetime as d
 import uuid
+import models.engine.file_storage as FileStorage
 
 
 class BaseModel(object):
@@ -16,15 +17,17 @@ class BaseModel(object):
     """
     def __init__(self, *args, **kwargs):
         """Returns a BaseModel object"""
+        self.storage = FileStorage()
+        self.storage.reload()
         if kwargs is not None and len(kwargs) > 0:
             for i, arg in kwargs.items():
-                if i is "__class__":
+                if i == "__class__":
                     arg = self.__class__
-                if i is "created_at":
+                if i == "created_at":
                     arg = d.datetime.strptime(
                         arg, "%Y-%m-%d %H:%M:%S.%f"
                     )
-                if i is "updated_at":
+                if i == "updated_at":
                     arg = d.datetime.strptime(
                         arg, "%Y-%m-%d %H:%M:%S.%f"
                     )
@@ -47,6 +50,7 @@ class BaseModel(object):
 
     def save(self):
         """Method to updates the instance"""
+        import models.engine.file_storage as storage
         self.updated_at = d.datetime.now()
 
     def to_dict(self):
