@@ -27,7 +27,6 @@ class FileStorage(object):
 
     def new(self, obj):
         """Returns nothing
-        
         Set the specific object in the dictionary
         """
         # self.__objects.__setitem__(obj.id, obj.to_dict())
