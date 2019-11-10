@@ -5,7 +5,9 @@ This is a console to manage some basic commands
 To the Airbnb clone project.
 """
 import cmd
-
+import models
+from models import storage
+from modes.base_model import BaseModel
 
 class HBNBCommand(cmd.Cmd):
     """Command Interpreter"""
