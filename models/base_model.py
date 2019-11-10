@@ -5,10 +5,9 @@
 This module contains the BaseModel class
 
 """
-import copy
+import models
 import datetime as d
-from models import storage
-import uuid
+from uuid import uuid4
 
 
 class BaseModel(object):
@@ -32,10 +31,10 @@ class BaseModel(object):
                     )
                 setattr(self, i, arg)
         else:
-            self.id = str(uuid.uuid4())
+            self.id = str(uuid4())
             self.created_at = d.datetime.now()
             self.updated_at = d.datetime.now()
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """Returns this object in a string format"""
@@ -51,24 +50,20 @@ class BaseModel(object):
     def save(self):
         """Method to updates the instance"""
         self.updated_at = d.datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """Returns a dictionary representation of this object"""
-        """
-        dicver = dict()
-        dicver.__setitem__("my_number", self.my_number)
-        dicver.__setitem__("name", self.name)
-        dicver.__setitem__("__class__", self.__class__.__name__)
-        dicver.__setitem__(
+        dic = self.__dict__.copy()
+        dic.__setitem__("__class__", self.__class__.__name__)
+        dic.__setitem__(
             "updated_at",
             self.updated_at.isoformat()
         )
-        dicver.__setitem__("id", self.id)
-        dicver.__setitem__(
+        dic.__setitem__("id", self.id)
+        dic.__setitem__(
             "created_at",
             self.created_at.isoformat()
         )
-        """
         # return (copy.deepcopy(self.__dict__))
-        return (copy.deepcopy(self.__dict__))
+        return (dic)
