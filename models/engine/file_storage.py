@@ -5,6 +5,7 @@
 This module contains the FileStorage class
 
 """
+from models.base_model import BaseModel
 import json
 
 
@@ -29,7 +30,10 @@ class FileStorage(object):
         
         Set the specific object in the dictionary
         """
-        self.__objects.__setitem__(obj.id, obj.to_dict())
+        # self.__objects.__setitem__(obj.id, obj.to_dict())
+        od = self.__objects
+        oname = obj.__class__.__name__
+        od["{:s}.{:s}".format(oname, obj.id)] = obj
 
     def save(self):
         """Return nothing
@@ -37,21 +41,23 @@ class FileStorage(object):
         Save a JSON representation of the object in a file
         """
         filename = self.__file_path
+        od = dict()
         list_objs = self.__objects
+        for o in list_objs:
+            od[o] = list_objs[o].to_dict()
         with open(filename, mode="w", encoding="utf-8") as f:
-            f.write(json.dumps(list_objs))
+            f.write(json.dumps(od))
 
     def reload(self):
         """Returns an object from a JSON string
 
-        A function that get the Python object
         from the JSON string in an textfile.
         """
         filename = self.__file_path
         try:
             with open(filename, mode="r", encoding="utf-8") as f:
-                pass
+                jo = json.loads(f.read())
+            for o in jo:
+                self.__objects[o] = BaseModel(**(jo[o]))
         except IOError:
-            return (dict())
-        with open(filename, mode="r", encoding="utf-8") as f:
-            return (json.loads(f.read()))
+            return
