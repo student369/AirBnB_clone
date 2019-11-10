@@ -29,7 +29,7 @@ class FileStorage(object):
         
         Set the specific object in the dictionary
         """
-        self.__objects.__setitem__(obj.id, obj)
+        self.__objects.__setitem__(obj.id, obj.to_dict())
 
     def save(self):
         """Return nothing

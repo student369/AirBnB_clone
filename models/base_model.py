@@ -5,7 +5,9 @@
 This module contains the BaseModel class
 
 """
+import copy
 import datetime as d
+from models import storage
 import uuid
 
 
@@ -33,9 +35,10 @@ class BaseModel(object):
             self.id = str(uuid.uuid4())
             self.created_at = d.datetime.now()
             self.updated_at = d.datetime.now()
+            storage.new(self)
 
     def __str__(self):
-        """Oberwrite the __str__ magic method"""
+        """Returns this object in a string format"""
         return (
             "[{:s}] ({:s}) {:s}"
             .format(
@@ -48,9 +51,11 @@ class BaseModel(object):
     def save(self):
         """Method to updates the instance"""
         self.updated_at = d.datetime.now()
+        storage.save()
 
     def to_dict(self):
         """Returns a dictionary representation of this object"""
+        """
         dicver = dict()
         dicver.__setitem__("my_number", self.my_number)
         dicver.__setitem__("name", self.name)
@@ -64,4 +69,6 @@ class BaseModel(object):
             "created_at",
             self.created_at.isoformat()
         )
-        return (dicver)
+        """
+        # return (copy.deepcopy(self.__dict__))
+        return (copy.deepcopy(self.__dict__))
