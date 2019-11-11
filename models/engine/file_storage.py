@@ -11,6 +11,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+from models.user import User
 import json
 
 
@@ -72,6 +73,8 @@ class FileStorage(object):
                     self.__objects[o] = Amenity(**(jo[o]))
                 elif o.split(".")[0] == "Review":
                     self.__objects[o] = Review(**(jo[o]))
+                elif o.split(".")[0] == "User":
+                    self.__objects[o] = User(**(jo[o]))
                 else:
                     self.__objects[o] = BaseModel(**(jo[o]))
         except IOError:
