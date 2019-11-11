@@ -30,6 +30,6 @@ $ cat test_help | ./console.py
 
 Documented commands (type help <topic>):
 ========================================
-EOF  help  quit  show
+EOF  help  quit  create  show  update  destroy  all
 (hbnb)
 ```
