@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Unittest for BaseModel class"""
-import models.base_model as b
-import pip8
-import unittest
 from models.base_model import BaseModel
+import models.base_model as b
+import unittest
+import pep8
 
 
 class TestBase(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestBase(unittest.TestCase):
         )
         self.assertEqual(
             ret.total_errors, 0,
-            "Pep 8 errors")
+            "Pep8 errors")
 
     def test_module_doc(self):
         """A test of module doc"""
