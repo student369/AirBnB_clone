@@ -65,5 +65,4 @@ class BaseModel(object):
             "created_at",
             self.created_at.isoformat()
         )
-        # return (copy.deepcopy(self.__dict__))
         return (dic)
