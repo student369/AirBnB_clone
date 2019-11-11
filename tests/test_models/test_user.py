@@ -45,6 +45,23 @@ class TestBase(unittest.TestCase):
             len(User.__init__.__doc__) > 10
         )
 
+    def test_attr0(self):
+        """A test of the email attribute"""
+        print(self.o0.email)
+        self.assertTrue(self.o0.email == "")
+
+    def test_attr1(self):
+        """A test of the password attribute"""
+        self.assertTrue(self.o0.password == "")
+
+    def test_attr2(self):
+        """A test of the fisrt name attribute"""
+        self.assertTrue(self.o0.first_name == "")
+
+    def test_attr3(self):
+        """A test of the last name attribute"""
+        self.assertTrue(self.o0.last_name == "")
+
 
 if __name__ == "__main__":
     unittest.main()
