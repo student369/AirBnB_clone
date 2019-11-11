@@ -17,26 +17,19 @@ class TestBase(unittest.TestCase):
         """test the pep8 in the files"""
         p8 = pep8.StyleGuide(quiet=True)
         ret = p8.check_files(
-            ['models/base_model.py',
-             'models/engine/file_storage.py',
-             'console.py',
-             'models/user.py',
-             'models/state.py',
-             'models/city.py',
-             'models/amenity.py',
-             'models/place.py',
-             'models/review.py',
-             'test_base.py',
-             'test_user.py',
-             'test_state.py',
-             'test_city.py',
-             'test_amenity.py',
-             'test_place.py',
-             'test_review.py']
+            [
+                'test_base_model.py',
+                'models/engine/file_storage.py',
+                'console.py',
+                'models/__init__.py'
+            ]
         )
+        p8.options.report.print_statistics()
         self.assertEqual(
-            ret.total_errors, 0,
-            "Pep8 errors")
+            ret.total_errors,
+            0,
+            "Pep8 errors"
+        )
 
     def test_module_doc(self):
         """A test of module doc"""
@@ -44,11 +37,15 @@ class TestBase(unittest.TestCase):
 
     def test_class_doc(self):
         """A test of class doc"""
-        self.assertTrue(len(BaseModel.__doc__) > 10)
+        self.assertTrue(
+            len(BaseModel.__doc__) > 10
+        )
 
     def test_init_doc(self):
         """A test of constructor doc"""
-        self.assertTrue(len(BaseModel.__init__.__doc__) > 10)
+        self.assertTrue(
+            len(BaseModel.__init__.__doc__) > 10
+        )
 
 
 if __name__ == "__main__":
