@@ -5,7 +5,6 @@ This is a console to manage some basic commands
 To the Airbnb clone project.
 """
 import cmd
-import models
 from models import storage
 from models.base_model import BaseModel
 from models.place import Place
@@ -13,6 +12,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -24,7 +24,8 @@ class HBNBCommand(cmd.Cmd):
         "State": State,
         "City": City,
         "Amenity": Amenity,
-        "Review": Review
+        "Review": Review,
+        "User": Review
     }
 
     def do_quit(self, args):
@@ -134,14 +135,15 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 cls_name = v1[0]
-                l = []
+                lst = list()
                 cls_name = "{:s}.".format(cls_name)
                 for k, v in actual.items():
-                        if cls_name in k:
-                            l.append(actual[k])
-                print(l)
+                    if cls_name in k:
+                        lst.append(actual[k])
+                print(lst)
         except IndexError:
             print(actual)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
