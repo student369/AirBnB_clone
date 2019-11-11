@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
                             print("** value missing **")
                         elif len(v1) >= 4:
                             attr = v1[2]
-                            val = v1[3]
+                            val = "".join(e for e in v1[3] if e.isalnum())
                             setattr(objs[cl_id], attr, val)
                             storage.save()
                 except IndexError:
@@ -139,11 +139,8 @@ class HBNBCommand(cmd.Cmd):
                 cls_name = "{:s}.".format(cls_name)
                 for k, v in actual.items():
                         if cls_name in k:
-                            print(
-                                '["' +
-                                str(actual[k]) +
-                                '"]'
-                            )
+                            l.append(actual[k])
+                print(repr(l))
         except IndexError:
             print(actual)
 
