@@ -8,7 +8,7 @@ This project is the firt part of the Airbnb clone project for Holberton School.
 ./console.py
 Documented commands (type help <topic>):
 ========================================
-EOF  help  quit  show
+EOF  help  quit  create  show   update  destroy  all
 
 (hbnb)
 (hbnb)
@@ -19,7 +19,7 @@ EOF  help  quit  show
 (hbnb)
 Documented commands (type help <topic>):
 ========================================
-EOF  help  quit  show
+EOF  help  quit  create  show  update  destroy  all
 (hbnb)
 $
 $ cat test_help
@@ -30,6 +30,6 @@ $ cat test_help | ./console.py
 
 Documented commands (type help <topic>):
 ========================================
-EOF  help  quit  show
+EOF  help  quit  create  show  update  destroy  all
 (hbnb)
 ```
