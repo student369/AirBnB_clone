@@ -13,8 +13,6 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
-from functools import wraps
-
 
 class HBNBCommand(cmd.Cmd):
     """Command Interpreter"""
@@ -140,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
                 for k, v in actual.items():
                         if cls_name in k:
                             l.append(actual[k])
-                print(repr(l))
+                print(l)
         except IndexError:
             print(actual)
 
