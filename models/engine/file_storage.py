@@ -6,6 +6,11 @@ This module contains the FileStorage class
 
 """
 from models.base_model import BaseModel
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 import json
 
 
@@ -57,6 +62,18 @@ class FileStorage(object):
             with open(filename, mode="r", encoding="utf-8") as f:
                 jo = json.loads(f.read())
             for o in jo:
-                self.__objects[o] = BaseModel(**(jo[o]))
+                print(o.__class__.__name__)
+                if o.__class__ == "Place":
+                    self.__objects[o] = Place(**(jo[o]))
+                elif o.__class__ == "State":
+                    self.__objects[o] = State(**(jo[o]))
+                elif o.__class__ == "City":
+                    self.__objects[o] = City(**(jo[o]))
+                elif o.__class__ == "Amenity":
+                    self.__objects[o] = Amenity(**(jo[o]))
+                elif o.__class__ == "Review":
+                    self.__objects[o] = Review(**(jo[o]))
+                else:
+                    self.__objects[o] = BaseModel(**(jo[o]))
         except IOError:
             return
