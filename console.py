@@ -8,10 +8,25 @@ import cmd
 import models
 from models import storage
 from models.base_model import BaseModel
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+from functools import wraps
+
 
 class HBNBCommand(cmd.Cmd):
     """Command Interpreter"""
     prompt = "(hbnb) "
+    __valid_classes = {
+        "BaseModel": BaseModel,
+        "Place": Place,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Review": Review
+    }
 
     def do_quit(self, args):
         """Quit command to exit the program"""
@@ -28,16 +43,69 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, args):
         """Creates new instance of BaseModel and prints id"""
         v1 = args.split()
-
         if len(v1) == 0:
             print("** class name missing **")
         else:
-            if v1[0] not in valid_classes:
+            if v1[0] not in self.__valid_classes.keys():
                 print("** class doesn't exist **")
             else:
-                obj = eval(v1[0])()
+                obj = self.__valid_classes[v1[0]]()
                 obj.save()
                 print(obj.id)
+
+    def do_show(self, args):
+        """Returns the list of an object given"""
+        v1 = args.split()
+        if len(v1) == 0:
+            print("** class name missing **")
+        else:
+            if v1[0] not in self.__valid_classes.keys():
+                print("** class doesn't exist **")
+            else:
+                try:
+                    cl_id = v1[1]
+                    storage.reload()
+                    objs = storage.all()
+                    cl_id = "{:s}.{:s}".format(v1[0], cl_id)
+                    if cl_id not in objs.keys():
+                        print("** no instance found **")
+                    else:
+                        print(objs[cl_id])
+                except IndexError:
+                    print("** instance id missing **")
+
+    def do_destroy(self, args):
+        """Returns the list of an object given"""
+        v1 = args.split()
+        if len(v1) == 0:
+            print("** class name missing **")
+        else:
+            if v1[0] not in self.__valid_classes.keys():
+                print("** class doesn't exist **")
+            else:
+                pass
+
+    def do_update(self, args):
+        """Returns the reference of the object updated"""
+        v1 = args.split()
+        if len(v1) == 0:
+            print("** class name missing **")
+        else:
+            if v1[0] not in self.__valid_classes.keys():
+                print("** class doesn't exist **")
+            else:
+                pass
+
+    def do_all(self, args):
+        """Returns the list of objects"""
+        v1 = args.split()
+        if len(v1) == 0:
+            print("** class name missing **")
+        else:
+            if v1[0] not in self.__valid_classes.keys():
+                print("** class doesn't exist **")
+            else:
+                pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
