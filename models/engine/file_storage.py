@@ -62,16 +62,15 @@ class FileStorage(object):
             with open(filename, mode="r", encoding="utf-8") as f:
                 jo = json.loads(f.read())
             for o in jo:
-                print(o.__class__.__name__)
-                if o.__class__ == "Place":
+                if o.split(".")[0] == "Place":
                     self.__objects[o] = Place(**(jo[o]))
-                elif o.__class__ == "State":
+                elif o.split(".")[0] == "State":
                     self.__objects[o] = State(**(jo[o]))
-                elif o.__class__ == "City":
+                elif o.split(".")[0] == "City":
                     self.__objects[o] = City(**(jo[o]))
-                elif o.__class__ == "Amenity":
+                elif o.split(".")[0] == "Amenity":
                     self.__objects[o] = Amenity(**(jo[o]))
-                elif o.__class__ == "Review":
+                elif o.split(".")[0] == "Review":
                     self.__objects[o] = Review(**(jo[o]))
                 else:
                     self.__objects[o] = BaseModel(**(jo[o]))
