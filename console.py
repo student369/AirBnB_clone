@@ -83,7 +83,17 @@ class HBNBCommand(cmd.Cmd):
             if v1[0] not in self.__valid_classes.keys():
                 print("** class doesn't exist **")
             else:
-                pass
+                try:
+                    cl_id = v1[1]
+                    storage.reload()
+                    objs = storage.all()
+                    cl_id = "{:s}.{:s}".format(v1[0], cl_id)
+                    if cl_id not in objs.keys():
+                        print("** no instance found **")
+                    else:
+                        pass
+                except IndexError:
+                    print("** instance id missing **")
 
     def do_update(self, args):
         """Returns the reference of the object updated"""
@@ -99,13 +109,21 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """Returns the list of objects"""
         v1 = args.split()
-        if len(v1) == 0:
-            print("** class name missing **")
-        else:
+        storage.reload()
+        actual = storage.all()
+        try:
             if v1[0] not in self.__valid_classes.keys():
                 print("** class doesn't exist **")
             else:
-                pass
+                cls_name = v1[0]
+                res = dict()
+                cls_name = "{:s}.".format(cls_name)
+                for k, v in actual.items():
+                        if cls_name in k:
+                            res.__setitem__(k, v)                
+                print(res)
+        except IndexError:
+            print(actual)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
