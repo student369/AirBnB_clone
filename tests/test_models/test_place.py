@@ -18,6 +18,7 @@ class TestBase(unittest.TestCase):
         p8 = pep8.StyleGuide(quiet=True)
         ret = p8.check_files(
             [
+                'tests/test_models/test_place.py',
                 'models/place.py'
             ]
         )
