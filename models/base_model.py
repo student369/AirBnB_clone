@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """Module BaseModel
-
 This module contains the BaseModel class
-
 """
 import models
 import datetime as d
@@ -12,7 +10,6 @@ from uuid import uuid4
 
 class BaseModel(object):
     """BaseModel class
-
     A simple empty BaseModel class
     """
     def __init__(self, *args, **kwargs):
