@@ -91,7 +91,8 @@ class HBNBCommand(cmd.Cmd):
                     if cl_id not in objs.keys():
                         print("** no instance found **")
                     else:
-                        pass
+                        del objs[cl_id]
+                        storage.save()
                 except IndexError:
                     print("** instance id missing **")
 
@@ -104,7 +105,18 @@ class HBNBCommand(cmd.Cmd):
             if v1[0] not in self.__valid_classes.keys():
                 print("** class doesn't exist **")
             else:
-                pass
+                try:
+                    cl_id = v1[1]
+                    storage.reload()
+                    objs = storage.all()
+                    cl_id = "{:s}.{:s}".format(v1[0], cl_id)
+                    if cl_id not in objs.keys():
+                        print("** no instance found **")
+                    else:
+                        del objs[cl_id]
+                        storage.save()
+                except IndexError:
+                    print("** instance id missing **")
 
     def do_all(self, args):
         """Returns the list of objects"""
