@@ -113,8 +113,15 @@ class HBNBCommand(cmd.Cmd):
                     if cl_id not in objs.keys():
                         print("** no instance found **")
                     else:
-                        del objs[cl_id]
-                        storage.save()
+                        if len(v1) == 2:
+                            print("** attribute name missing **")
+                        elif len(v1) == 3:
+                            print("** value missing **")
+                        elif len(v1) >= 4:
+                            attr = v1[2]
+                            val = v1[3]
+                            setattr(objs[cl_id], attr, val)
+                            storage.save()
                 except IndexError:
                     print("** instance id missing **")
 
@@ -128,12 +135,15 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 cls_name = v1[0]
-                res = dict()
+                l = []
                 cls_name = "{:s}.".format(cls_name)
                 for k, v in actual.items():
                         if cls_name in k:
-                            res.__setitem__(k, v)                
-                print(res)
+                            print(
+                                '["' +
+                                str(actual[k]) +
+                                '"]'
+                            )
         except IndexError:
             print(actual)
 
