@@ -48,6 +48,30 @@ class TestBase(unittest.TestCase):
             len(BaseModel.__init__.__doc__) > 10
         )
 
+    def test_str(self):
+        """A test of __str__ method"""
+        self.assertTrue(
+            len(BaseModel.__str__.__doc__) > 10
+        )
+
+    def test_repr(self):
+        """A test of __repr__ method"""
+        self.assertTrue(
+            len(BaseModel.__repr__.__doc__) > 10
+        )
+
+    def test_base_model_save(self):
+        """A test of save method"""
+        self.assertTrue(
+            len(BaseModel.save.__doc__) > 10
+        )
+
+    def test_base_model_to_dict(self):
+        """A test of to_dict method"""
+        self.assertTrue(
+            len(BaseModel.to_dict.__doc__) > 10
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
