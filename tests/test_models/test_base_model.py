@@ -23,6 +23,7 @@ class TestBase(unittest.TestCase):
                 'models/__init__.py',
                 'models/engine/__init__.py',
                 'tests/__init__.py',
+                'tests/test_models/__init__.py'
             ]
         )
         p8.options.report.print_statistics()
