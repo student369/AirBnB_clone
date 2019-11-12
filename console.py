@@ -27,6 +27,7 @@ class HBNBCommand(cmd.Cmd):
         "Review": Review,
         "User": User
     }
+    __blacklist = ["id", "created_at",  "updated_at"]
 
     def do_quit(self, args):
         """Quit command to exit the program"""
@@ -119,9 +120,10 @@ class HBNBCommand(cmd.Cmd):
                             print("** value missing **")
                         elif len(v1) >= 4:
                             attr = v1[2]
-                            val = "".join(e for e in v1[3] if e.isalnum())
-                            setattr(objs[cl_id], attr, val)
-                            storage.save()
+                            if attr not in self.__blacklist:
+                                val = "".join(e for e in v1[3] if e.isalnum())
+                                setattr(objs[cl_id], attr, val)
+                                storage.save()
                 except IndexError:
                     print("** instance id missing **")
 
