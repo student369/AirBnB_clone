@@ -19,7 +19,6 @@ class TestBase(unittest.TestCase):
         ret = p8.check_files(
             [
                 'tests/test_models/test_base_model.py',
-                'console.py',
                 'models/__init__.py',
                 'models/engine/__init__.py',
                 'tests/__init__.py',
