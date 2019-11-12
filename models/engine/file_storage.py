@@ -75,7 +75,7 @@ class FileStorage(object):
                     self.__objects[o] = Review(**(jo[o]))
                 elif o.split(".")[0] == "User":
                     self.__objects[o] = User(**(jo[o]))
-                else:
+                elif o.split(".")[0] == "BaseModel":
                     self.__objects[o] = BaseModel(**(jo[o]))
         except IOError:
             pass
