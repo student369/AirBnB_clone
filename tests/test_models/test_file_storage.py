@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittest for BaseModel class"""
+"""Unittest for BaseModel class."""
 from models.engine import file_storage as f
 import unittest
 import pep8
