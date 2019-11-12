@@ -6,7 +6,7 @@ import unittest
 import pep8
 
 
-class TestFileStorage(unittest.TestCase):
+class TestBase(unittest.TestCase):
     """Base class tests."""
 
     def setUp(self):
@@ -55,9 +55,23 @@ class TestFileStorage(unittest.TestCase):
         with self.assertRaises(AttributeError):
             self.oO.__objects
 
-    def test_init_all(self):
+    def test_files_new(self):
         """A test of all method"""
-        self.assertTrue(self.o0.all(), dict())
+        self.assertTrue(
+            len(f.FileStorage.new.__doc__) > 10
+        )
+
+    def test_files_save(self):
+        """A test of all method"""
+        self.assertTrue(
+            len(f.FileStorage.all.__doc__) > 10
+        )
+
+    def test_files_reload(self):
+        """A test of all method"""
+        self.assertTrue(
+            len(f.FileStorage.reload.__doc__) > 10
+        )
 
 
 if __name__ == "__main__":
