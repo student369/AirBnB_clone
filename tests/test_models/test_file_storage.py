@@ -30,7 +30,7 @@ class TestBase(unittest.TestCase):
         )
 
     def test_module_doc(self):
-        """A test of module doc"""
+        """A test of module doc."""
         self.assertTrue(len(f.__doc__) > 10)
 
     def test_class_doc(self):
