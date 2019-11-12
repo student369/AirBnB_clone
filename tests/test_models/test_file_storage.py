@@ -55,6 +55,10 @@ class TestFileStorage(unittest.TestCase):
         with self.assertRaises(AttributeError):
             self.oO.__objects
 
+    def test_init_all(self):
+        """A test of all method"""
+        self.assertTrue(self.o0.all(), dict())
+
 
 if __name__ == "__main__":
     unittest.main()
