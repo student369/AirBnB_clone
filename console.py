@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""HBNB Console for AirBnB clone
+"""HBNB Console for AirBnB clone:
 
 This is a console to manage some basic commands
 To the Airbnb clone project.
