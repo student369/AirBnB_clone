@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Module file_storage
 
-This module contains the FileStorage class
+This module contains the FileStorage class.
 
 """
 from models.base_model import BaseModel
