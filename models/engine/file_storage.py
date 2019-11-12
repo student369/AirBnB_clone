@@ -78,4 +78,4 @@ class FileStorage(object):
                 else:
                     self.__objects[o] = BaseModel(**(jo[o]))
         except IOError:
-            return
+            pass
