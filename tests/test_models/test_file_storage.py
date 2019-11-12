@@ -44,6 +44,16 @@ class TestFileStorage(unittest.TestCase):
             len(f.FileStorage.__init__.__doc__) > 10
         )
 
+    def test_private_file_path(self):
+        """Test the file path private attribute"""
+        with self.assertRaises(AttributeError):
+            self.oO.__file_path
+
+    def test_private_objects(self):
+        """Test the file path private attribute"""
+        with self.assertRaises(AttributeError):
+            self.oO.__objects
+
 
 if __name__ == "__main__":
     unittest.main()
