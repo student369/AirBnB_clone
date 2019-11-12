@@ -33,3 +33,8 @@ Documented commands (type help <topic>):
 EOF  help  quit  create  show  update  destroy  all
 (hbnb)
 ```
+# Examples:
+
+<img src="https://imgur.com/a/vrhk4k4"
+     alt="Example one"
+     style="float: left; margin-right: 10px;" />
