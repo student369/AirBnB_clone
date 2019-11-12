@@ -10,7 +10,7 @@ class TestFileStorage(unittest.TestCase):
     """Base class tests."""
 
     def setUp(self):
-        """Base classes to the tests"""
+        """Base classes to the tests."""
         self.o0 = f.FileStorage()
 
     def test_pep8(self):
