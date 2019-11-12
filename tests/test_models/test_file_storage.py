@@ -14,7 +14,7 @@ class TestFileStorage(unittest.TestCase):
         self.o0 = f.FileStorage()
 
     def test_pep8(self):
-        """test the pep8 in the files"""
+        """test the pep8 in the files."""
         p8 = pep8.StyleGuide(quiet=True)
         ret = p8.check_files(
             [
