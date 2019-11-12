@@ -1,5 +1,5 @@
 # AirBnB_clone
-This project is the firt part of the Airbnb clone project for Holberton School.
+This project is the firt part of the Airbnb clone project for Holberton School..
 
 # How to use?
 
