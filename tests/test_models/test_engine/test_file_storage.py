@@ -18,7 +18,7 @@ class TestBase(unittest.TestCase):
         p8 = pep8.StyleGuide(quiet=True)
         ret = p8.check_files(
             [
-                'tests/test_models/test_file_storage.py',
+                'tests/test_models/test_engine/test_file_storage.py',
                 'models/engine/file_storage.py'
             ]
         )
