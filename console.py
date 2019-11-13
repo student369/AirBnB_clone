@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
                 print(obj.id)
 
     def do_show(self, args):
-        """Returns the list of an object given"""
+        """Returns the list of an object given."""
         v1 = args.split()
         if len(v1) == 0:
             print("** class name missing **")
