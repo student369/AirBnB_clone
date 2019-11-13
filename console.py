@@ -135,6 +135,8 @@ class HBNBCommand(cmd.Cmd):
                                 for c in val:
                                     if c in self.__whitelist:
                                         valid += c
+                                if valid.isnumeric():
+                                    valid = int(valid)
                                 setattr(objs[cl_id], attr, valid)
                                 storage.save()
                 except IndexError:
@@ -170,16 +172,32 @@ class HBNBCommand(cmd.Cmd):
                     raise ValueError
                 name, act = v1[0], v1[1]
                 cmd = "{:s} {:s}".format(name, act)
+                mul = True if act.count('"') % 2 == 0 else False
                 if act == "all()":
                     self.do_all(cmd)
                 elif "show(" in act and act.count('"') == 2:
-                    idc = act[act.find('"') + 1: (len(act) - 2)]
+                    idx0 = act.find('"') + 1
+                    idx1 = len(act) - 2
+                    idc = act[idx0: idx1]
                     cmd = "{:s} {:s}".format(name, idc)
                     self.do_show(cmd)
                 elif "destroy(" in act and act.count('"') == 2:
-                    idc = act[act.find('"') + 1: (len(act) - 2)]
+                    idx0 = act.find('"') + 1
+                    idx1 = len(act) - 2
+                    idc = act[idx0: idx1]
                     cmd = "{:s} {:s}".format(name, idc)
                     self.do_destroy(cmd)
+                elif "update(" in act and mul:
+                    idx0 = act.find('(') + 1
+                    idx1 = len(act) - 1
+                    prms = act[idx0: idx1].split(",")
+                    idc, atr, val = prms
+                    idc = idc.replace('"', "")
+                    atr = atr.replace('"', "")
+                    cmd = "{:s} {:s} {:s} {:s}".format(
+                        name, idc, atr, val
+                    )
+                    self.do_update(cmd)
                 else:
                     raise ValueError
             else:
