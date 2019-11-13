@@ -46,7 +46,7 @@ class BaseModel(object):
 
     def __repr__(self):
         """Returns a representation of this object"""
-        return ('"' + str(self) + '"')
+        return (str(self))
 
     def save(self):
         """Method to updates the instance"""
