@@ -37,21 +37,21 @@ class HBNBCommand(cmd.Cmd):
         "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7",
         "8", "9", " ", "_", "-", "@"
     ]
-    
+
     def do_quit(self, args):
-        """Quit command to exit the program"""
+        """Quit command to exit the program."""
         return True
 
     def do_EOF(self, args):
-        """End of File command to quit the program"""
+        """End of File command to quit the program."""
         return True
 
     def emptyline(self):
-        """An empty line and ENTER should not execute anything"""
+        """An empty line and ENTER should not execute anything."""
         pass
 
     def do_create(self, args):
-        """Creates new instance of BaseModel and prints id"""
+        """Creates new instance of BaseModel and prints id."""
         v1 = args.split()
         if len(v1) == 0:
             print("** class name missing **")
