@@ -28,7 +28,16 @@ class HBNBCommand(cmd.Cmd):
         "User": User
     }
     __blacklist = ["id", "created_at",  "updated_at"]
-
+    __whitelist = [
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
+        "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
+        "u", "v", "w", "x", "y", "z", "A", "B", "C", "D",
+        "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+        "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X",
+        "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7",
+        "8", "9", " ", "_", "-", "@"
+    ]
+    
     def do_quit(self, args):
         """Quit command to exit the program"""
         return True
@@ -121,8 +130,12 @@ class HBNBCommand(cmd.Cmd):
                         elif len(v1) >= 4:
                             attr = v1[2]
                             if attr not in self.__blacklist:
-                                val = "".join(e for e in v1[3] if e.isalnum())
-                                setattr(objs[cl_id], attr, val)
+                                valid = ""
+                                val = v1[3]
+                                for c in val:
+                                    if c in self.__whitelist:
+                                        valid += c
+                                setattr(objs[cl_id], attr, valid)
                                 storage.save()
                 except IndexError:
                     print("** instance id missing **")
