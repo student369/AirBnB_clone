@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
         "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7",
         "8", "9", " ", "_", "-", "@"
     ]
-    
+
     def do_quit(self, args):
         """Quit command to exit the program"""
         return True
@@ -158,6 +158,27 @@ class HBNBCommand(cmd.Cmd):
                 print(lst)
         except IndexError:
             print(actual)
+
+    def default(self, args):
+        """Returns nothing
+        This function handle the not recognized commands
+        """
+        try:
+            if "." in args and "()" in args:
+                v1 = args.split(".")
+                if v1[0] not in self.__valid_classes.keys():
+                    raise ValueError
+                name, action = v1[0], v1[1]
+                command = "{:s} {:s}".format(name, action)
+                if action == "all()":
+                    self.do_all(command)
+            else:
+                raise ValueError
+        except ValueError:
+            print(
+                "*** Unknown syntax: {:s}"
+                .format(args)
+            )
 
 
 if __name__ == '__main__':
