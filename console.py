@@ -164,14 +164,20 @@ class HBNBCommand(cmd.Cmd):
         This function handle the not recognized commands
         """
         try:
-            if "." in args and "()" in args:
+            if "." in args and "(" in args and ")" in args:
                 v1 = args.split(".")
                 if v1[0] not in self.__valid_classes.keys():
                     raise ValueError
-                name, action = v1[0], v1[1]
-                command = "{:s} {:s}".format(name, action)
-                if action == "all()":
-                    self.do_all(command)
+                name, act = v1[0], v1[1]
+                cmd = "{:s} {:s}".format(name, act)
+                if act == "all()":
+                    self.do_all(cmd)
+                elif "show(" in act and act.count('"') == 2:
+                    idc = act[act.find('"') + 1: (len(act) - 2)]
+                    cmd = "{:s} {:s}".format(name, idc)
+                    self.do_show(cmd)
+                else:
+                    raise ValueError
             else:
                 raise ValueError
         except ValueError:
