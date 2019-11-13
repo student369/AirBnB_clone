@@ -85,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** instance id missing **")
 
     def do_destroy(self, args):
-        """Returns the list of an object given"""
+        """Returns the list of an object given."""
         v1 = args.split()
         if len(v1) == 0:
             print("** class name missing **")
