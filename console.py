@@ -176,6 +176,10 @@ class HBNBCommand(cmd.Cmd):
                     idc = act[act.find('"') + 1: (len(act) - 2)]
                     cmd = "{:s} {:s}".format(name, idc)
                     self.do_show(cmd)
+                elif "destroy(" in act and act.count('"') == 2:
+                    idc = act[act.find('"') + 1: (len(act) - 2)]
+                    cmd = "{:s} {:s}".format(name, idc)
+                    self.do_destroy(cmd)
                 else:
                     raise ValueError
             else:
