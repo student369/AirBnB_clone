@@ -7,7 +7,7 @@ import pep8
 
 
 class TestBase(unittest.TestCase):
-    """Base class tests"""
+    """Base class tests."""
 
     def setUp(self):
         """Base classes to the tests"""
