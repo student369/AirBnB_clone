@@ -162,6 +162,25 @@ class HBNBCommand(cmd.Cmd):
         except IndexError:
             print(actual)
 
+    def docount(self, args):
+        """Returns the list of objects"""
+        c1 = 0
+        v1 = args.split()
+        storage.reload()
+        actual = storage.all()
+        try:
+            if v1[0] not in self.__valid_classes.keys():
+                print("** class doesn't exist **")
+            else:
+                cls_name = v1[0]
+                cls_name = "{:s}.".format(cls_name)
+                for k, v in actual.items():
+                    if cls_name in k:
+                        c1 = c1 + 1
+                print(c1)
+        except IndexError:
+            print(c1)
+
     def default(self, args):
         """Returns nothing
         This function handle the not recognized commands
@@ -176,6 +195,8 @@ class HBNBCommand(cmd.Cmd):
                 mul = True if act.count('"') % 2 == 0 else False
                 if act == "all()":
                     self.do_all(cmd)
+                elif act == "count()":
+                    self.docount(cmd)
                 elif "show(" in act and act.count('"') == 2:
                     idx0 = act.find('"') + 1
                     idx1 = len(act) - 2
