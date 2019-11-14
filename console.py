@@ -5,6 +5,7 @@ This is a console to manage some basic commands
 To the Airbnb clone project..
 """
 import cmd
+import json
 from models import storage
 from models.base_model import BaseModel
 from models.place import Place
@@ -190,14 +191,37 @@ class HBNBCommand(cmd.Cmd):
                 elif "update(" in act and mul:
                     idx0 = act.find('(') + 1
                     idx1 = len(act) - 1
-                    prms = act[idx0: idx1].split(",")
-                    idc, atr, val = prms
-                    idc = idc.replace('"', "")
-                    atr = atr.replace('"', "")
-                    cmd = "{:s} {:s} {:s} {:s}".format(
-                        name, idc, atr, val
-                    )
-                    self.do_update(cmd)
+                    if "{" in act and "}" in act:
+                        try:
+                            prms = act[idx0: idx1].split(",")
+                            idc = prms[0]
+                            idx2 = act.find("{")
+                            idx3 = act.find("}") + 1
+                            dic = act[idx2: idx3].replace(
+                                "'", '"'
+                            )
+                            dic = json.loads(dic)
+                            idc = idc.replace('"', "")
+                            for k, v in dic.items():
+                                cmd = "{:s} {:s} {:s} {:s}"\
+                                      .format(
+                                          name,
+                                          idc,
+                                          str(k),
+                                          str(v)
+                                          )
+                                self.do_update(cmd)
+                        except Exception:
+                            raise ValueError
+                    else:
+                        prms = act[idx0: idx1].split(",")
+                        idc, atr, val = prms
+                        idc = idc.replace('"', "")
+                        atr = atr.replace('"', "")
+                        cmd = "{:s} {:s} {:s} {:s}".format(
+                            name, idc, atr, val
+                        )
+                        self.do_update(cmd)
                 else:
                     raise ValueError
             else:
