@@ -76,11 +76,6 @@ class TestBase(unittest.TestCase):
             len(BaseModel.to_dict.__doc__) > 10
         )
 
-    def test_update_from_diccionary(self):
-        with patch("sys.stdout", new=StringIO()) as f:
-            self.o0.onecmd("help show")
-        print(f)
-
 
 if __name__ == "__main__":
     unittest.main()
