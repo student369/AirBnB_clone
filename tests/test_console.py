@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Unittest for HBNBCommand class."""
-from models.base_model import BaseModel
 from console import HBNBCommand
 from unittest.mock import patch
 from io import StringIO
@@ -80,6 +79,18 @@ class TestBase(unittest.TestCase):
         """A test of do_update method"""
         self.assertTrue(
             len(HBNBCommand.do_update.__doc__) > 10
+        )
+
+    def test_do_all(self):
+        """A test of do_all method"""
+        self.assertTrue(
+            len(HBNBCommand.do_all.__doc__) > 10
+        )
+
+    def test_default(self):
+        """A test of default method"""
+        self.assertTrue(
+            len(HBNBCommand.default.__doc__) > 10
         )
 
 
