@@ -16,6 +16,11 @@ class TestBase(unittest.TestCase):
         """Base classes to the tests"""
         self.o0 = HBNBCommand()
 
+    def test_all(self):
+        """Tests that all cmd works"""
+        console = self.create()
+        self.assertTrue(console.onecmd("all"))
+
     def test_pep8(self):
         """test the pep8 in the files"""
         p8 = pep8.StyleGuide(quiet=True)
@@ -81,6 +86,15 @@ class TestBase(unittest.TestCase):
             self.o0.onecmd("help show")
         print(f)
 
+        def testEOF(self):
+            """Tests that end of file exists"""
+            console = self.create()
+            self.assertTrue(console.onecmd("EOF"))
+
+        def testquit(self):
+            """Tests that the quit cmd exists"""
+            console = self.create()
+            self.assertTrue(console.onecmd("quit"))
 
 if __name__ == "__main__":
     unittest.main()
