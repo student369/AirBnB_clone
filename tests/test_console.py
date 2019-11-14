@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Unittest for the HBNBCommand class."""
 from models.base_model import BaseModel
+"""Unittest for HBNBCommand class."""
+>>>>>>> b35bfbf13c516e7771ab2c96d3e700ed23e45f04
 from console import HBNBCommand
 from unittest.mock import patch
 from io import StringIO
@@ -15,11 +17,6 @@ class TestBase(unittest.TestCase):
     def setUp(self):
         """Base classes to the tests."""
         self.o0 = HBNBCommand()
-
-    def test_all(self):
-        """Tests that all cmd works"""
-        console = self.create()
-        self.assertTrue(console.onecmd("all"))
 
     def test_pep8(self):
         """test the pep8 in the files"""
@@ -87,20 +84,18 @@ class TestBase(unittest.TestCase):
             len(HBNBCommand.do_update.__doc__) > 10
         )
 
-    def test_update_from_diccionary(self):
-        with patch("sys.stdout", new=StringIO()) as f:
-            self.o0.onecmd("help show")
-        print(f)
+    def test_do_all(self):
+        """A test of do_all method"""
+        self.assertTrue(
+            len(HBNBCommand.do_all.__doc__) > 10
+        )
 
-        def testEOF(self):
-            """Tests that end of file exists"""
-            console = self.create()
-            self.assertTrue(console.onecmd("EOF"))
+    def test_default(self):
+        """A test of default method"""
+        self.assertTrue(
+            len(HBNBCommand.default.__doc__) > 10
+        )
 
-        def testquit(self):
-            """Tests that the quit cmd exists"""
-            console = self.create()
-            self.assertTrue(console.onecmd("quit"))
 
 if __name__ == "__main__":
     unittest.main()
