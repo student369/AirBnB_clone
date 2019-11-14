@@ -10,10 +10,10 @@ import pep8
 
 
 class TestBase(unittest.TestCase):
-    """Base class tests"""
+    """Base class tests."""
 
     def setUp(self):
-        """Base classes to the tests"""
+        """Base classes to the tests."""
         self.o0 = HBNBCommand()
 
     def test_all(self):
