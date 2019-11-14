@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittest for BaseModel class.."""
+"""Unittest for BaseModel class."""
 from models.base_model import BaseModel
 from console import HBNBCommand
 from unittest.mock import patch
