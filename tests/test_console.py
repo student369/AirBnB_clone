@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""Unittest for the HBNBCommand class."""
-from models.base_model import BaseModel
 """Unittest for HBNBCommand class."""
->>>>>>> b35bfbf13c516e7771ab2c96d3e700ed23e45f04
 from console import HBNBCommand
 from unittest.mock import patch
 from io import StringIO
