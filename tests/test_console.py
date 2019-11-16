@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""Unittest for the HBNBCommand class."""
-from models.base_model import BaseModel
 """Unittest for HBNBCommand class."""
->>>>>>> b35bfbf13c516e7771ab2c96d3e700ed23e45f04
 from console import HBNBCommand
 from unittest.mock import patch
 from io import StringIO
@@ -94,6 +91,87 @@ class TestBase(unittest.TestCase):
         """A test of default method"""
         self.assertTrue(
             len(HBNBCommand.default.__doc__) > 10
+        )
+
+    def test_baseall(self):
+        """A test of base all method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("BaseModel.all()")
+        self.assertEqual(f.getvalue(), "[]\n")
+
+    def test_reviewall(self):
+        """A test review all method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("Review.all()")
+        self.assertEqual(f.getvalue(), "[]\n")
+
+    def test_userall(self):
+        """A test user all method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("User.all()")
+        self.assertEqual(f.getvalue(), "[]\n")
+
+    def test_stateall(self):
+        """A test state all method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("State.all()")
+        self.assertEqual(f.getvalue(), "[]\n")
+
+    def test_cityall(self):
+        """A test city all method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("City.all()")
+        self.assertEqual(f.getvalue(), "[]\n")
+
+    def test_placeall(self):
+        """A test place all method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("Place.all()")
+        self.assertEqual(f.getvalue(), "[]\n")
+
+    def test_basecount(self):
+        """A test of base count method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("BaseModel.count()")
+        self.assertEqual(f.getvalue(), "0\n")
+
+    def test_reviewcount(self):
+        """A test review all method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("Review.count()")
+        self.assertEqual(f.getvalue(), "0\n")
+
+    def test_usercount(self):
+        """A test user count method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("User.count()")
+        self.assertEqual(f.getvalue(), "0\n")
+
+    def test_statecount(self):
+        """A test state count method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("State.count()")
+        self.assertEqual(f.getvalue(), "0\n")
+
+    def test_citycount(self):
+        """A test city count method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("City.count()")
+        self.assertEqual(f.getvalue(), "0\n")
+
+    def test_placecount(self):
+        """A test place count method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("Place.count()")
+        self.assertEqual(f.getvalue(), "0\n")
+
+    def test_basemodelshow(self):
+        """A test place basemodel show method"""
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.o0.onecmd("BaseModel.show()")
+        self.assertEqual(
+            f.getvalue(),
+            "*** Unknown syntax: BaseModel.show()\n"
         )
 
 
