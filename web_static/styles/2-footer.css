@@ -1,0 +1,14 @@
+/*
+=============================
+Footer styles
+=============================
+*/
+
+footer {
+    background: #00FF00;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+}
