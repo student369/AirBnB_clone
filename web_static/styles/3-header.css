@@ -1,0 +1,21 @@
+/*
+=============================
+Header styles
+=============================
+*/
+
+header {    
+    background: #FFFFFF;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    text-align: left;
+}
+
+header .logo {
+    width: 142px;
+    height: 60px;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: 20px 5px;
+}
