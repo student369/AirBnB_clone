@@ -1,0 +1,16 @@
+/*
+=============================
+Global styles
+=============================
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+p {
+    line-height: 30px;
+    white-space: nowrap;
+}
