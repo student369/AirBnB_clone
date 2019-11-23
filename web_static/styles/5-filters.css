@@ -1,0 +1,68 @@
+/*
+=============================
+Filters styles
+=============================
+*/
+div.container
+section.filters {
+    background: #FFFFFF;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    line-height: 20px;
+    white-space: nowrap;
+    position: relative;
+}
+
+div.container
+section.filters
+div.locations,
+div.container
+section.filters
+div.amenities {
+    padding-top: 10px;
+    padding-left: 50px;
+    float: left;
+    height: 100%;
+    width: 25%;
+}
+
+div.container
+section.filters
+.locations h3,
+div.container
+section.filters
+.amenities h3 {
+    font-weight: 600;
+}
+
+div.container
+section.filters
+.locations h4,
+div.container
+section.filters
+.amenities h4 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+div.container
+section.filters
+.locations {
+    border-right: 1px solid #DDDDDD;
+}
+
+
+div.container
+section.filters
+button {
+    margin-top: 10px;
+    float: right;
+}
+
+div.container
+section.filters
+button:after {
+    clear: both;
+}
