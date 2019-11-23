@@ -1,0 +1,135 @@
+/*
+=============================
+Filters styles
+=============================
+*/
+div.container
+section.filters {
+    background: #FFFFFF;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    line-height: 20px;
+    white-space: nowrap;
+    position: relative;
+}
+
+div.container
+section.filters
+div.locations,
+div.container
+section.filters
+div.amenities {
+    padding-left: 50px;
+    float: left;
+    height: 100%;
+    width: 25%;
+}
+
+div.container
+section.filters
+.amenities:hover
+ul.popover {
+    display: block;
+}
+
+div.container
+section.filters
+.locations h3,
+div.container
+section.filters
+.amenities h3 {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+div.container
+section.filters
+.locations h4,
+div.container
+section.filters
+.amenities h4 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+div.container
+section.filters
+.locations
+ul.popover,
+div.container
+section.filters
+.amenities
+ul.popover {
+    background-color: #FAFAFA;
+    width: 25%;
+    display: none;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 70px;
+    padding: 25px;
+}
+
+div.container
+section.filters
+.locations:hover
+ul.popover {
+    display: block;
+}
+
+div.container
+section.filters
+.locations
+ul.popover > li {
+    margin-bottom: 10px;
+}
+
+div.container
+section.filters
+.locations
+ul.popover h2 {
+    font-size: 16px;
+}
+
+div.container
+section.filters
+ul ul {
+    list-style: none;
+}
+
+div.container
+section.filters
+ul ul li{
+    margin-left: 15px;
+}
+
+div.container
+section.filters
+.locations {
+    border-right: 1px solid #DDDDDD;
+}
+
+div.container
+section.filters
+.amenities
+ul.popover {
+    margin-left: 30%;
+}
+
+div.container
+section.filters
+button {
+    margin-top: 10px;
+    float: right;
+}
+
+div.container
+section.filters
+button:after {
+    clear: both;
+}
