@@ -21,7 +21,6 @@ div.locations,
 div.container
 section.filters
 div.amenities {
-    padding-top: 10px;
     padding-left: 50px;
     float: left;
     height: 100%;
@@ -34,6 +33,7 @@ section.filters
 div.container
 section.filters
 .amenities h3 {
+    margin-top: 10px;
     font-weight: 600;
 }
 
@@ -52,7 +52,6 @@ section.filters
 .locations {
     border-right: 1px solid #DDDDDD;
 }
-
 
 div.container
 section.filters
