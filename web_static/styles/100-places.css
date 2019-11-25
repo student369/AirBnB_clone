@@ -1,0 +1,254 @@
+/*
+=============================
+Footer styles
+=============================
+*/
+
+section.places {
+    margin: 25px;
+}
+
+section.places
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section.places
+h1 {
+    font-size: 30px;
+}
+
+section.places
+article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+    text-align: center;
+}
+
+section.places
+article
+h2 {
+    flex-grow: 2;
+    font-size: 30px;
+}
+
+section.places
+article > div {
+    display: flex;
+    align-items: center;
+}
+
+section.places
+article
+div.price_by_night {
+    color: #FF5A5F;
+    border: 4px solid #FF5A5F;
+    border-radius: 50%;
+    min-width: 60px;
+    height: 60px;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section.places
+article
+div.information {
+    height: 80px;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+section.places
+article
+div.information
+div
+p {
+    position: absolute;
+    margin-top: 24px;
+}
+
+section.places
+article
+div.information
+div.max_guest {
+    width: 100px;
+    height: 50px;
+    background-image: url("../images/icon_group.png");
+    background-repeat: no-repeat;
+    background-position: 25px 0px;
+}
+
+section.places
+article
+div.information
+div.number_rooms {
+    width: 100px;
+    height: 50px;
+    background-image: url("../images/icon_bed.png");
+    background-repeat: no-repeat;
+    background-position: 25px 0px;
+}
+
+section.places
+article
+div.information
+div.number_bathrooms{
+    width: 100px;
+    height: 50px;
+    background-image: url("../images/icon_bath.png");
+    background-repeat: no-repeat;
+    background-position: 25px 0px;
+}
+
+section.places
+article
+div.user {
+    margin: 5px 0 5px 0px;
+    display: flex;
+    width: inherit;
+    justify-content: end;
+    margin-top: 20px;
+}
+
+section.places
+article
+div.description {    
+    line-height: 1.2;
+    white-space: normal;
+    text-align: justify;
+}
+
+section.places
+article
+div.description {
+    line-height: 1.2;
+    white-space: normal;
+    text-align: justify;
+}
+
+section.places
+article
+div.amenities {
+    width: inherit;
+    margin-top: 40px;    
+    display: flex;
+    text-align: justify;
+}
+
+section.places
+article
+div.amenities
+h2,
+section.places
+article
+div.reviews
+h2{
+    padding: 10px 0;
+    width: inherit;
+    font-size: 16px;
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 10px;
+}
+
+section.places
+article
+div.amenities,
+section.places
+article
+div.reviews,
+ul {
+    padding: 10px 0 0 0;
+    width: inherit;
+    list-style: none;
+}
+
+section.places
+article
+div.amenities
+ul
+li {
+    padding: 10px 30px;
+}
+
+section.places
+article
+div.amenities
+ul
+li[data-type="pets"] {
+    height: 25px;    
+    background-image: url("../images/icon_pets.png");
+    background-repeat: no-repeat;
+    background-position: 1px 5px;
+    background-size: 25px;
+}
+
+section.places
+article
+div.amenities
+ul
+li[data-type="wifi"] {
+    height: 25px;    
+    background-image: url("../images/icon_wifi.png");
+    background-repeat: no-repeat;
+    background-position: 1px 5px;
+    background-size: 25px;
+}
+
+section.places
+article
+div.amenities
+ul
+li[data-type="tv"] {
+    height: 25px;    
+    background-image: url("../images/icon_tv.png");
+    background-repeat: no-repeat;
+    background-position: 1px 5px;
+    background-size: 25px;
+}
+
+section.places
+article
+div.reviews {
+    width: inherit;
+    margin-top: 40px;
+    display: flex;
+    text-align: justify;
+}
+
+section.places
+article
+div.amenities
+ul
+li {
+    padding: 10px 30px;
+}
+
+section.places
+article
+div.reviews
+ul
+li
+p {
+    height: unset;
+    line-height: initial;
+    margin: 5px 0;
+}
+
+section.places
+article
+div.reviews
+ul
+li {
+    padding: 10px 0;
+}
